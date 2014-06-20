@@ -14,7 +14,7 @@ namespace ChomadProblemServer
         [HttpPost, Route("answer")]
         public int Post([FromBody]int[] answers)
         {
-            var correct = new[] { 4, 3, 1, 2 };
+            var correct = new[] { 1, 1, 4, 3, 3, 4, 2, 1, 3, 2 };
             return correct
                 .Zip(answers, (c, a) => c == a)
                 .Count(right => right);
