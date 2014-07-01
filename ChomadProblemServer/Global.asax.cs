@@ -13,6 +13,8 @@ namespace ChomadProblemServer
         {
             GlobalConfiguration.Configure(config =>
             {
+                config.EnableCors();
+
                 config.MapHttpAttributeRoutes();
 
                 config.Routes.MapHttpRoute(
