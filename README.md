@@ -62,6 +62,14 @@ Chomado Problem Server は Microsoft Azure Web Apps の無料枠内で実行で�
 
 Chomado Problem Server は Heroku の無料枠内で実行できます。
 
+## 開発
+
+Chomado Problem Server は C# + .NET Framework 4.5 + ASP.NET Web API で作成されています。
+
+開発環境は Windows OS + Visual Studio 2013 以降 (Community Edition 可) を想定しています。
+
+このリポジトリを git clone したのち、ソリューションファイル(.sln)を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+
 ## ライセンス
 
 [GNU General Public License v2.0](https://github.com/jsakamoto/chomado-problem-server/blob/master/LICENSE)
