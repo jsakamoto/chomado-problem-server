@@ -38,6 +38,16 @@ $ curl http://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3
 2
 ```
 
+## 自分で設置する
+
+### Microsoft Azure Web Apps に設置する
+
+下の「Deploy to Azure」ボタンをクリックし、表示される Web サイトの指示に従ってください。
+
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
+Chomado Problem Server は Microsoft Azure Web Apps の無料枠内で実行できます。
+
 ## ライセンス
 
 [GNU General Public License v2.0](https://github.com/jsakamoto/chomado-problem-server/blob/master/LICENSE)
