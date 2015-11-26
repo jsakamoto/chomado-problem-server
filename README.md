@@ -23,7 +23,7 @@
 以下の3種類の PaaS 上に常設しています。
 
 - **AppHarbor:** http://chomado-problem-server.apphb.com/answer
-- **Heroku:** http://chomado-problem-server.heroku.com/answer
+- **Heroku:** http://chomado-problem-server.herokuapp.com/answer
 - **Microsoft Azure Web Apps:** http://chomado-problem-server.azurewebsites.net/answer
 
 **メソッド:**  `POST`
