@@ -21,6 +21,8 @@ namespace ChomadProblemServer
                 defaults: new { id = RouteParameter.Optional }
             );
             app.UseWebApi(config);
+
+            app.UseNancy();
         }
     }
 }

@@ -131,7 +131,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extension\UrlHelperExtension.cs" />
+    <Compile Include="DefaultModule.cs" />
     <Compile Include="ProblemController.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

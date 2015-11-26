@@ -1,6 +1,4 @@
-﻿@{
-    var appUrl = "";
-}<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Chomado Problem Server</title>
@@ -40,7 +38,7 @@
     <h2>リクエスト送信方法</h2>
     <dl>
         <dt>URL</dt>
-        <dd>@appUrl/answer</dd>
+        <dd>@Model.SiteBase/answer</dd>
         <dt>メソッド</dt>
         <dd>POST</dd>
         <dt>必要な要求ヘッダ</dt>
@@ -55,7 +53,7 @@
 
     <h2>呼び出し例</h2>
     <p>例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。</p>
-    <pre>$ curl @appUrl/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
+    <pre>$ curl @Model.SiteBase/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
 
     <h2>ソースコード</h2>
     <a href="https://github.com/jsakamoto/chomado-problem-server/tree/master" target="_blank">
