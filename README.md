@@ -48,6 +48,14 @@ $ curl http://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3
 
 Chomado Problem Server は Microsoft Azure Web Apps の無料枠内で実行できます。
 
+### Heroku に設置する
+
+下の「Deploy to Heroku」ボタンをクリックし、表示される Web サイトの指示に従ってください。
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+Chomado Problem Server は Heroku の無料枠内で実行できます。
+
 ## ライセンス
 
 [GNU General Public License v2.0](https://github.com/jsakamoto/chomado-problem-server/blob/master/LICENSE)
