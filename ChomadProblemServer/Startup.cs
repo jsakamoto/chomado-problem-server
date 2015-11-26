@@ -26,6 +26,7 @@ namespace ChomadProblemServer
 
             // ASP.NET Web API support.
             var config = new HttpConfiguration();
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
