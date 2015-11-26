@@ -8,8 +8,14 @@
 
 ## "ちょまど問題" とは?
 
-<blockquote class="twitter-tweet" lang="en"><p lang="ja" dir="ltr">【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。</p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a href="https://twitter.com/ito_yusaku/status/479262891124617216">June 18, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+> ![@ito_yusaku](https://pbs.twimg.com/profile_images/477275642065473537/N7VoaKoW_normal.jpeg) _伊藤 祐策(パソコンの大先生) (@ito_yusaku)_  
+> **【ちょまど問題まとめ】**  
+>・4択問題が全部で10問ある。  
+>・全部の回答を終えると何問正解したかだけが分かる。  
+>・全問正解するとクリア。  
+>・問題文は人外の言葉で書かれているので読んでも解けない。  
+>・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。  
+> &mdash; <a href="https://twitter.com/ito_yusaku/status/479262891124617216">June 18, 2014</a>
 
 ## リクエスト送信方法
 
