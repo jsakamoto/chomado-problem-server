@@ -3,17 +3,24 @@ using System.Linq;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ChomadProblemServer
 {
     [EnableCors("Any")]
     public class ProblemController : Controller
     {
+        private IHostingEnvironment Env { get; }
+
+        public ProblemController(IHostingEnvironment env)
+        {
+            this.Env = env;
+        }
 
         [HttpGet, Route("/")]
         public ActionResult Index()
         {
-            if (this.Request.Scheme == "http")
+            if (this.Request.Scheme == "http" && !this.Env.IsDevelopment())
                 return RedirectPermanent($"https://{this.Request.Host.Host}/");
 
             this.ViewBag.SiteBase = this.Request.GetDisplayUrl().TrimEnd('/');
