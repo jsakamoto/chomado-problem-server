@@ -13,7 +13,10 @@ namespace ChomadProblemServer
         [HttpGet, Route("/")]
         public ActionResult Index()
         {
-            this.ViewBag.SiteBase = this.HttpContext.Request.GetDisplayUrl().TrimEnd('/');
+            if (this.Request.Scheme == "http")
+                return RedirectPermanent($"https://{this.Request.Host.Host}/");
+
+            this.ViewBag.SiteBase = this.Request.GetDisplayUrl().TrimEnd('/');
             return View();
         }
 
