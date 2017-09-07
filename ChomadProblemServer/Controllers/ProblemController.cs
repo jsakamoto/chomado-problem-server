@@ -2,28 +2,29 @@
 using System.Linq;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace ChomadProblemServer
 {
     [EnableCors("Any")]
     public class ProblemController : Controller
     {
-        private IHostingEnvironment Env { get; }
+        private IConfiguration Config { get; set; }
 
-        public ProblemController(IHostingEnvironment env)
+        public ProblemController(IConfiguration config)
         {
-            this.Env = env;
+            this.Config = config;
         }
 
         [HttpGet, Route("/")]
         public ActionResult Index()
         {
-            if (this.Request.Scheme == "http" && !this.Env.IsDevelopment())
+            var enforceHTTPS = this.Config.GetValue<bool>("EnforceHTTPS", defaultValue: false);
+            var scheme = this.Request.Headers.TryGetValue("X-Forwarded-Proto", out var value) ? value.ToString() : this.Request.Scheme;
+            if (enforceHTTPS && scheme == "http")
                 return RedirectPermanent($"https://{this.Request.Host.Host}/");
 
-            this.ViewBag.SiteBase = this.Request.GetDisplayUrl().TrimEnd('/');
+            this.ViewBag.SiteBase = $"{scheme}://{this.Request.Host.Host}";
             return View();
         }
 
