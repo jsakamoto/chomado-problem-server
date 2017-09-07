@@ -19,12 +19,16 @@
 
 ## リクエスト送信方法
 
-**URL:**  
+**ホスト:**  
 以下の3種類の PaaS 上に常設しています。
 
-- **AppHarbor:** http://chomado-problem-server.apphb.com/answer
-- **Heroku:** http://chomado-problem-server.herokuapp.com/answer
-- **Microsoft Azure Web Apps:** http://chomado-problem-server.azurewebsites.net/answer
+- **AppHarbor:** https://chomado-problem-server.apphb.com/
+- **Heroku:** https://chomado-problem-server.herokuapp.com/
+- **Microsoft Azure Web Apps:** https://chomado-problem-server.azurewebsites.net/
+
+**API エンドポイントのパス**
+
+`/answer`
 
 **メソッド:**  `POST`
 
@@ -40,7 +44,7 @@
 例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。
 
 ```
-$ curl http://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
+$ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
 2
 ```
 
@@ -64,9 +68,9 @@ Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET Framework 4.5 + ASP.NET Web API で作成されています。
+Chomado Problem Server は C# + .NET Core 1.1 + ASP.NET Core 1.1 で作成されています。
 
-開発環境は Windows OS + Visual Studio 2013 以降 (Community Edition 可) を想定しています。
+開発環境は Windows OS + Visual Studio 2017 以降 (Community Edition 可) を想定しています。
 
 このリポジトリを git clone したのち、ソリューションファイル(.sln)を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
