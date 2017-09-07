@@ -19,12 +19,16 @@
 
 ## リクエスト送信方法
 
-**URL:**  
+**ホスト:**  
 以下の3種類の PaaS 上に常設しています。
 
-- **AppHarbor:** http://chomado-problem-server.apphb.com/answer
-- **Heroku:** http://chomado-problem-server.herokuapp.com/answer
-- **Microsoft Azure Web Apps:** http://chomado-problem-server.azurewebsites.net/answer
+- **AppHarbor:** https://chomado-problem-server.apphb.com/
+- **Heroku:** https://chomado-problem-server.herokuapp.com/
+- **Microsoft Azure Web Apps:** https://chomado-problem-server.azurewebsites.net/
+
+**API エンドポイントのパス**
+
+`/answer`
 
 **メソッド:**  `POST`
 
@@ -40,7 +44,7 @@
 例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。
 
 ```
-$ curl http://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
+$ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
 2
 ```
 
@@ -56,17 +60,53 @@ Chomado Problem Server は Microsoft Azure Web Apps の無料枠内で実行で�
 
 ### Heroku に設置する
 
-下の「Deploy to Heroku」ボタンをクリックし、表示される Web サイトの指示に従ってください。
+Chomado Problem Server は、Docker Hub にて Docker イメージとしても配布しています (下記)。
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+https://hub.docker.com/r/jsakamoto/chomad-problem-server/
+
+この Docker イメージを Heroku の Docker コンテナに配置することで Heroku 上への Chomado Problem Server の設置が可能です。
+
+Heroku CLI と Docker がインストール済みの環境であれば、下記の手順で配置可能です (下記の `{appname}` の部分は、設置しようとしている Heroku 上の実際のアプリ名に置き換えてください)。
+
+```bash
+# "heroku update" で heroku CLI を最新版に更新しておくこと
+# 事前に "heroku login" 及び "heroku container:login" で
+# Heroku とそのコンテナサービスへのログインを済ませておくこと
+$ heroku apps:create {appname} # すでにアプリを別途作成済みなら不要
+
+# Chomado Problem Server の Docker イメージをローカル環境に持ってくる
+$ docker pull jsakamoto/chomad-problem-server:latest
+
+# ローカルに持ってきた Chomado Problem Server の Docker イメージに、
+# Heroku の Docker リポジトリ名で別名をつける
+$ docker tag jsakamoto/chomad-problem-server:latest registry.heroku.com/{appname}/web:latest
+
+# その別名で docker push することで、Chomado Problem Server の
+# Docker イメージが Heroku の Docker リポジトリに送り込まれ、
+# Heroku 上で自動で docker run されて稼働が始まる。
+$ docker push registry.heroku.com/{appname}/web:latest
+
+# docker push が成功したら、"heroku open -a {appname}" で、
+# デフォルトブラウザにて Chomado Problem Server のページが開く
+```
+
+なお、こうして Heroku の Docker コンテナサービスに配置したChomaod Problem Server の Web ページについて、HTTPS アクセスを強制するには、`EnforceHTTP` 環境変数に `true` を設定してください。
+
+Heroku CLI であれば、下記コマンドになります。
+
+```bash
+$ heroku config:set EnforceHTTPS=true -a {appname}
+```
+
+以上の設定を施しておくと、Chomado Problem Server の説明ページへの HTTP プロトコルでのアクセスは HTTPS プロトコルでのアクセスにリダイレクトされるようになります (Web API エンドポイントについては、下位互換維持のため、HTTP から HTTPS へのリダイレクトは行いません)。
 
 Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET Framework 4.5 + ASP.NET Web API で作成されています。
+Chomado Problem Server は C# + .NET Core 1.1 + ASP.NET Core 1.1 で作成されています。
 
-開発環境は Windows OS + Visual Studio 2013 以降 (Community Edition 可) を想定しています。
+開発環境は Windows OS + Visual Studio 2017 以降 (Community Edition 可) を想定しています。
 
 このリポジトリを git clone したのち、ソリューションファイル(.sln)を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
