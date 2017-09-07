@@ -19,12 +19,16 @@
 
 ## リクエスト送信方法
 
-**URL:**  
+**ホスト:**  
 以下の3種類の PaaS 上に常設しています。
 
-- **AppHarbor:** http://chomado-problem-server.apphb.com/answer
-- **Heroku:** http://chomado-problem-server.herokuapp.com/answer
-- **Microsoft Azure Web Apps:** http://chomado-problem-server.azurewebsites.net/answer
+- **AppHarbor:** https://chomado-problem-server.apphb.com/
+- **Heroku:** https://chomado-problem-server.herokuapp.com/
+- **Microsoft Azure Web Apps:** https://chomado-problem-server.azurewebsites.net/
+
+**API エンドポイントのパス**
+
+`/answer`
 
 **メソッド:**  `POST`
 
@@ -40,7 +44,7 @@
 例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。
 
 ```
-$ curl http://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
+$ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
 2
 ```
 
