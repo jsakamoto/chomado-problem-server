@@ -95,7 +95,7 @@ $ docker push registry.heroku.com/{appname}/web:latest
 Heroku CLI であれば、下記コマンドになります。
 
 ```bash
-$ heroku config:set EnforceHTTPS=true
+$ heroku config:set EnforceHTTPS=true -a {appname}
 ```
 
 以上の設定を施しておくと、Chomado Problem Server の説明ページへの HTTP プロトコルでのアクセスは HTTPS プロトコルでのアクセスにリダイレクトされるようになります (Web API エンドポイントについては、下位互換維持のため、HTTP から HTTPS へのリダイレクトは行いません)。
