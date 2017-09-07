@@ -64,9 +64,9 @@ Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET Framework 4.5 + ASP.NET Web API で作成されています。
+Chomado Problem Server は C# + .NET Core 1.1 + ASP.NET Core 1.1 で作成されています。
 
-開発環境は Windows OS + Visual Studio 2013 以降 (Community Edition 可) を想定しています。
+開発環境は Windows OS + Visual Studio 2017 以降 (Community Edition 可) を想定しています。
 
 このリポジトリを git clone したのち、ソリューションファイル(.sln)を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
