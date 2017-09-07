@@ -19,14 +19,12 @@ namespace ChomadProblemServer
         [HttpGet, Route("/")]
         public ActionResult Index()
         {
-            var siteBase = $"https://{this.Request.Host.Host}/";
-
             var enforceHTTPS = this.Config.GetValue<bool>("EnforceHTTPS", defaultValue: false);
             var scheme = this.Request.Headers.TryGetValue("X-Forwarded-Proto", out var value) ? value.ToString() : this.Request.Scheme;
             if (enforceHTTPS && scheme == "http")
-                return RedirectPermanent(siteBase);
+                return RedirectPermanent($"https://{this.Request.Host.Host}/");
 
-            this.ViewBag.SiteBase = siteBase.TrimEnd('/');
+            this.ViewBag.SiteBase = $"{scheme}://{this.Request.Host.Host}";
             return View();
         }
 
