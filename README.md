@@ -104,11 +104,34 @@ Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET Core 1.1 + ASP.NET Core 1.1 で作成されています。
+Chomado Problem Server は C# + .NET 5.0 + ASP.NET Core 5.0 で作成されています。
 
-開発環境は Windows OS + Visual Studio 2017 以降 (Community Edition 可) を想定しています。
+開発環境は 
 
-このリポジトリを git clone したのち、ソリューションファイル(.sln)を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+- Windows OS + Visual Studio 2019 以降 (Community Edition 可)、
+- または .NET SDK 5.0 以降 + Visual Studio Code 
+
+を想定しています。
+
+### Windows OS + Visual Studio の場合
+
+事前に Visual Studio をインストールしておいてください。  
+(要件に問題なければ、無償利用可能な Community 版で構いません。)  
+インストールの際は「ASP.NET と Web 開発」のワークロードを選択してインストールしてください。
+
+- [Visual Studio のダウンロード](https://visualstudio.microsoft.com/ja/vs/)
+
+このリポジトリを git clone したのち、ソリューションファイル (.sln) を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+
+### .NET SDK  + Visual Studio Code の場合
+
+事前に .NET SDK 5.0 以降、および Visual Studio Code をインストールしておいてください。
+
+- [.NET SDK 5.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/5.0)
+- [Visual Studio Code のダウンロード](https://code.visualstudio.com/download)
+
+このリポジトリを git clone したのち、clone した先のフォルダを Visual Studio Code で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+
 
 ## ライセンス
 

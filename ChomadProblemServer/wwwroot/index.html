@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Chomado Problem Server</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="ちょまど問題" />
-    <meta name="description" content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える web api サーバーです。このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。" />
+    <meta name="description" content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。" />
     <style>
         body {
             margin: 0;
@@ -33,13 +34,13 @@
     <p>このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。</p>
 
     <h2>"ちょまど問題" とは?</h2>
-    <blockquote class="twitter-tweet" lang="ja"><p>【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。</p>&mdash; 伊藤 祐策(パソコンの大先生) (@@ito_yusaku) <a href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a></blockquote>
+    <blockquote class="twitter-tweet" lang="ja"><p>【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。</p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a></blockquote>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <h2>リクエスト送信方法</h2>
     <dl>
         <dt>URL</dt>
-        <dd>@ViewBag.SiteBase/answer</dd>
+        <dd><span class="site-origin"></span>/answer</dd>
         <dt>メソッド</dt>
         <dd>POST</dd>
         <dt>必要な要求ヘッダ</dt>
@@ -54,11 +55,14 @@
 
     <h2>呼び出し例</h2>
     <p>例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。</p>
-    <pre>$ curl @ViewBag.SiteBase/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
+    <pre>$ curl <span class="site-origin"></span>/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
 
     <h2>ソースコード</h2>
     <a href="https://github.com/jsakamoto/chomado-problem-server/tree/master" target="_blank">
         https://github.com/jsakamoto/chomado-problem-server/tree/master
     </a>
+    <script>
+        document.querySelectorAll('.site-origin').forEach(e => e.textContent = document.location.origin);
+    </script>
 </body>
 </html>
