@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Chomado Problem Server</title>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="ちょまど問題" />
-    <meta name="description" content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。" />
+    <meta name="description"
+        content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
         pre {
@@ -18,6 +20,7 @@
     </style>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
+
 <body>
     <h1>Chomado Problem Server</h1>
 
@@ -27,7 +30,11 @@
     <p>このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。</p>
 
     <h2>"ちょまど問題" とは?</h2>
-    <blockquote class="twitter-tweet" lang="ja"><p>【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。</p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a></blockquote>
+    <blockquote class="twitter-tweet" lang="ja">
+        <p>【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。
+        </p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a
+            href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a>
+    </blockquote>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <h2>リクエスト送信方法</h2>
@@ -41,10 +48,18 @@
         <dt>送信ボディ</dt>
         <dd>
             4択の回答を 1, 2, 3, 4 の整数のいずれかで表し、10問分の回答となる要素10個の配列を JSON 形式で送信。<br />
-            例) <pre>[1,2,3,4,1,2,3,4,1,2]</pre>
+            例)
+            <pre>[1,2,3,4,1,2,3,4,1,2]</pre>
         </dd>
     </dl>
 
+    <p>この API サーバーには Swagger UI も搭載しており、以下のリンクから開けます。</p>
+    <p>
+        <a href="./swagger/" target="_blank">
+            <img src="./swagger/favicon-32x32.png" style="vertical-align: middle; margin-right: 12px;" />
+            <span>Swagger UI</span>
+        </a>
+    </p>
 
     <h2>呼び出し例</h2>
     <p>例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。</p>
@@ -58,4 +73,5 @@
         document.querySelectorAll('.site-origin').forEach(e => e.textContent = document.location.origin);
     </script>
 </body>
+
 </html>

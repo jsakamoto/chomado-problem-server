@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 await using var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
@@ -9,6 +9,8 @@ app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().WithMethods("POST"));
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapPost("/answer", ([FromBody] int[] answers, int? seed) =>
 {
