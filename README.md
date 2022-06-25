@@ -48,6 +48,8 @@ $ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,
 2
 ```
 
+<!--
+
 ## 自分で設置する
 
 ### Microsoft Azure Web Apps に設置する
@@ -101,6 +103,7 @@ $ heroku config:set EnforceHTTPS=true -a {appname}
 以上の設定を施しておくと、Chomado Problem Server の説明ページへの HTTP プロトコルでのアクセスは HTTPS プロトコルでのアクセスにリダイレクトされるようになります (Web API エンドポイントについては、下位互換維持のため、HTTP から HTTPS へのリダイレクトは行いません)。
 
 Chomado Problem Server は Heroku の無料枠内で実行できます。
+-->
 
 ## 開発
 
@@ -125,9 +128,9 @@ Chomado Problem Server は C# + .NET 5.0 + ASP.NET Core 5.0 で作成されて�
 
 ### .NET SDK  + Visual Studio Code の場合
 
-事前に .NET SDK 5.0 以降、および Visual Studio Code をインストールしておいてください。
+事前に .NET SDK 6.0 以降、および Visual Studio Code をインストールしておいてください。
 
-- [.NET SDK 5.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/5.0)
+- [.NET SDK 6.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Visual Studio Code のダウンロード](https://code.visualstudio.com/download)
 
 このリポジトリを git clone したのち、clone した先のフォルダを Visual Studio Code で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
