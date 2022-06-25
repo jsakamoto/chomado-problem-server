@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="ちょまど問題" />
     <meta name="description"
-        content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。" />
+        content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
         pre {
@@ -27,7 +27,7 @@
     <h2>これは何?</h2>
 
     <p>"ちょまど問題" を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。</p>
-    <p>このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。</p>
+    <p>この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。</p>
 
     <h2>"ちょまど問題" とは?</h2>
     <blockquote class="twitter-tweet" lang="ja">
@@ -51,6 +51,9 @@
             例)
             <pre>[1,2,3,4,1,2,3,4,1,2]</pre>
         </dd>
+        <dt>クエリ文字列</dt>
+        <dd>seed ... 正答を内部生成するのに使われる乱数シード値 (整数値)。省略可能で既定値は 1 です。</dd>
+
     </dl>
 
     <p>この API サーバーには Swagger UI も搭載しており、以下のリンクから開けます。</p>
@@ -63,7 +66,7 @@
 
     <h2>呼び出し例</h2>
     <p>例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。</p>
-    <pre>$ curl <span class="site-origin"></span>/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
+    <pre>$ curl <span class="site-origin"></span>/answer?seed=123 -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
 
     <h2>ソースコード</h2>
     <a href="https://github.com/jsakamoto/chomado-problem-server/tree/master" target="_blank">

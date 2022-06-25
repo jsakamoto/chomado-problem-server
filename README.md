@@ -4,7 +4,7 @@
 
 "ちょまど問題" を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。
 
-このサイトに固定で設定されている、4択問題x全10問の回答を、JSON 形式で POST すると、正答数を返します。
+この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。
 
 ## "ちょまど問題" とは?
 
@@ -39,12 +39,15 @@
 
 例) `[1,2,3,4,1,2,3,4,1,2]`
 
+**クエリ文字列:**  
+`seed` ... 正答を内部生成するのに使われる乱数シード値 (整数値)。省略可能で既定値は 1 です。
+
 ## 呼び出し例
 
 例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。
 
 ```
-$ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
+$ curl https://chomado-problem-server.apphb.com/answer?seed=123 -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"
 2
 ```
 
