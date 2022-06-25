@@ -48,9 +48,27 @@ $ curl https://chomado-problem-server.apphb.com/answer -X POST -d "[1,2,3,4,1,2,
 2
 ```
 
-<!--
-
 ## 自分で設置する
+
+### Docker コンテナを起動する
+
+Chomado Problem Server は、Docker Hub にて Docker イメージとしても配布しています (下記)。
+
+https://hub.docker.com/r/jsakamoto/chomad-problem-server/
+
+下記 `docker` コマンドで、TCP ポート 5000 でリッスンする状態で起動 (デタッチ、終了時のコンテナ削除の指定込み) できます。
+
+```shell
+docker run -p 5000:80 -d --rm --name chomado-problem-server jsakamoto/chomado-problem-server
+```
+
+上記コマンド例で実行した場合は、コンテナ名に `chomado-problem-server` を指定してあるので、起動したコンテナを停止するには下記コマンドを実行すればよいです。
+
+```shell
+docker stop chomado-problem-server
+```
+
+<!--
 
 ### Microsoft Azure Web Apps に設置する
 
@@ -107,12 +125,12 @@ Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET 5.0 + ASP.NET Core 5.0 で作成されています。
+Chomado Problem Server は C# + .NET 6.0 + ASP.NET Core Minimal API で作成されています。
 
 開発環境は 
 
-- Windows OS + Visual Studio 2019 以降 (Community Edition 可)、
-- または .NET SDK 5.0 以降 + Visual Studio Code 
+- Windows OS + Visual Studio 2022 以降 (Community Edition 可)、
+- または .NET SDK 6.0 以降 + Visual Studio Code 
 
 を想定しています。
 
@@ -124,7 +142,7 @@ Chomado Problem Server は C# + .NET 5.0 + ASP.NET Core 5.0 で作成されて�
 
 - [Visual Studio のダウンロード](https://visualstudio.microsoft.com/ja/vs/)
 
-このリポジトリを git clone したのち、ソリューションファイル (.sln) を Visual Studio で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+このリポジトリを git clone したのち、ソリューションファイル (.sln) を Visual Studio で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
 ### .NET SDK  + Visual Studio Code の場合
 
@@ -133,7 +151,7 @@ Chomado Problem Server は C# + .NET 5.0 + ASP.NET Core 5.0 で作成されて�
 - [.NET SDK 6.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Visual Studio Code のダウンロード](https://code.visualstudio.com/download)
 
-このリポジトリを git clone したのち、clone した先のフォルダを Visual Studio Code で開いてキーボードの F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+このリポジトリを git clone したのち、clone した先のフォルダ直下にある `📂 ChomadProblemServer` フォルダを Visual Studio Code で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
 
 ## ライセンス
