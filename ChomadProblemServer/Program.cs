@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using System.Runtime.InteropServices;
+
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,6 +26,13 @@ app.MapPost("/answer", ([FromBody] int[] answers, int? seed) =>
         .Count(right => right);
 
     return correctCount;
+});
+
+app.MapGet("/runtime-information", () => new
+{
+    RuntimeInformation.FrameworkDescription,
+    RuntimeInformation.OSDescription,
+    ProcessArchitecture = RuntimeInformation.ProcessArchitecture.ToString()
 });
 
 await app.RunAsync();
