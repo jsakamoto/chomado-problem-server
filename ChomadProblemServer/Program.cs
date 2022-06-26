@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args).UseWasiConnectionListener();
 builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -9,7 +9,7 @@ await using var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
-app.UseStaticFiles();
+app.UseBundledStaticFiles();
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().WithMethods("POST"));
 app.UseSwagger();
 app.UseSwaggerUI();
