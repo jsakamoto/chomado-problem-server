@@ -1,8 +1,0 @@
-{
-  "name": "chomado-problem-server",
-  "buildpacks": [
-    {
-      "url": "https://github.com/friism/heroku-buildpack-mono"
-    }
-  ]
-}
