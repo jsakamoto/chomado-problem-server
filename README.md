@@ -51,7 +51,7 @@ $ curl https://chomado-problem-server.apphb.com/answer?seed=123 -X POST -d "[1,2
 2
 ```
 
-## 自分で設置する
+## 自分で実行する
 
 ### Docker コンテナを起動する
 
@@ -70,6 +70,18 @@ docker run -p 5000:80 -d --rm --name chomado-problem-server jsakamoto/chomado-pr
 ```shell
 docker stop chomado-problem-server
 ```
+
+### WebAssembly 版を起動する
+
+この GitHub リポジトリの `Release` ページから .wasm ファイル [📦"ChomadProblemServer.wasm"](https://github.com/jsakamoto/chomado-problem-server/releases/download/wasm%2Fv1/ChomadProblemServer.wasm) をダウンロード後、これを WASI (WebAssembly Standard Interface) に準拠したランタイム、具体的には ["wasmtime"](https://wasmtime.dev/) などで実行できます。
+
+例えば、wasmtime をインストール済みの環境にて下記コマンドを実行することで、wasmtime 上でちょまど問題サーバーを起動することができます。
+
+```shell
+wasmtime ./ChomadProblemServer.wasm --tcplisten localhost:5000
+```
+
+上記実行後に、Web ブラウザで `http://localhost:5000/` にアクセスすると、ちょまど問題サーバーが起動していることが確認できます。
 
 <!--
 
@@ -137,9 +149,17 @@ Chomado Problem Server は C# + .NET 6.0 + ASP.NET Core Minimal API で作成さ
 
 を想定しています。
 
+### WebAssembly 版
+
+WebAssembly 版は [`edition/wasm`](https://github.com/jsakamoto/chomado-problem-server/tree/edition/wasm) ブランチからビルドできます。
+
+ただし .NET SDK は、**7 以降** (この README 最終更新時点でプレビューリリースの段階) が必要です。
+
+WebAssembly 版は、[Steve Sanderson 氏](https://twitter.com/stevensanderson) 個人の実験プロジェクト ["WASI SDK for .NET Core"](https://github.com/SteveSandersonMS/dotnet-wasi-sdk) によって実現されています。
+
 ### Windows OS + Visual Studio の場合
 
-事前に Visual Studio をインストールしておいてください。  
+事前に Visual Studio 2022 かそれ以降をインストールしておいてください。  
 (要件に問題なければ、無償利用可能な Community 版で構いません。)  
 インストールの際は「ASP.NET と Web 開発」のワークロードを選択してインストールしてください。
 
