@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="ちょまど問題" />
     <meta name="description"
-        content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。" />
+          content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
         pre {
@@ -16,6 +16,8 @@
             padding: 1em;
             display: inline-block;
             border-radius: 8px;
+            overflow: auto;
+            max-width: 100%;
         }
     </style>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -31,9 +33,9 @@
 
     <h2>"ちょまど問題" とは?</h2>
     <blockquote class="twitter-tweet" lang="ja">
-        <p>【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。
-        </p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a
-            href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a>
+        <p>
+            【ちょまど問題まとめ】&#10;・4択問題が全部で10問ある。&#10;・全部の回答を終えると何問正解したかだけが分かる。&#10;・全問正解するとクリア。&#10;・問題文は人外の言葉で書かれているので読んでも解けない。&#10;・回答試行は何回でもできるが、できるだけ少ない回数でクリアしたい。
+        </p>&mdash; 伊藤 祐策(パソコンの大先生) (@ito_yusaku) <a href="https://twitter.com/ito_yusaku/statuses/479262891124617216">2014, 6月 18</a>
     </blockquote>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
