@@ -20,10 +20,9 @@
 ## リクエスト送信方法
 
 **ホスト:**  
-以下の3種類の PaaS 上に常設しています。
 
-- **AppHarbor:** https://chomado-problem-server.apphb.com/
-- **Heroku:** https://chomado-problem-server.herokuapp.com/
+以下の PaaS 上に常設しています。
+
 - **Microsoft Azure Web Apps:** https://chomado-problem-server.azurewebsites.net/
 
 **API エンドポイントのパス**
@@ -140,12 +139,12 @@ Chomado Problem Server は Heroku の無料枠内で実行できます。
 
 ## 開発
 
-Chomado Problem Server は C# + .NET 6.0 + ASP.NET Core Minimal API で作成されています。
+Chomado Problem Server は C# + .NET 8.0 + ASP.NET Core Minimal API で作成されています。
 
 開発環境は 
 
 - Windows OS + Visual Studio 2022 以降 (Community Edition 可)、
-- または .NET SDK 6.0 以降 + Visual Studio Code 
+- または .NET SDK 8.0 以降 + Visual Studio Code 
 
 を想定しています。
 
@@ -169,9 +168,9 @@ WebAssembly 版は、[Steve Sanderson 氏](https://twitter.com/stevensanderson) 
 
 ### .NET SDK  + Visual Studio Code の場合
 
-事前に .NET SDK 6.0 以降、および Visual Studio Code をインストールしておいてください。
+事前に .NET SDK 8.0 以降、および Visual Studio Code をインストールしておいてください。
 
-- [.NET SDK 6.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [.NET SDK 8.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Visual Studio Code のダウンロード](https://code.visualstudio.com/download)
 
 このリポジトリを git clone したのち、clone した先のフォルダ直下にある `📂 ChomadProblemServer` フォルダを Visual Studio Code で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。

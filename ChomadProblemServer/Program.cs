@@ -26,13 +26,17 @@ app.MapPost("/answer", ([FromBody] int[] answers, int? seed) =>
         .Count(right => right);
 
     return correctCount;
-});
+})
+.WithName("PostAnser")
+.WithOpenApi();
 
 app.MapGet("/runtime-information", () => new
 {
     RuntimeInformation.FrameworkDescription,
     RuntimeInformation.OSDescription,
     ProcessArchitecture = RuntimeInformation.ProcessArchitecture.ToString()
-});
+})
+.WithName("GetRuntimeInformation")
+.WithOpenApi();
 
 await app.RunAsync();

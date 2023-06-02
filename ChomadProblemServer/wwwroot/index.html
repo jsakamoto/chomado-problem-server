@@ -11,13 +11,32 @@
           content="&quot;ちょまど問題&quot; を解くアプリを作る際に、回答を問い合わせるのに使える Web API サーバーです。この API サイトに、4択問題x全10問の回答を JSON 形式で POST すると、その POST 要求のクエリ文字列に指定されている乱数シード値に基づき正当を内部で生成し、POST された回答と付き合わせて、正答した数を返します。" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
-        pre {
-            background-color: #eee;
-            padding: 1em;
-            display: inline-block;
+        dt {
+            font-weight: bold;
+            margin-left: 1em;
+        }
+
+        dd {
+            margin: 0.2em 0 1em 2em;
+        }
+
+        pre, .code {
+            color: var(--text-main);
+            background-color: var(--background);
             border-radius: 8px;
             overflow: auto;
             max-width: 100%;
+        }
+
+        pre {
+            display: inline-block;
+            padding: 1em;
+        }
+
+        .code {
+            font-family: monospace;
+            padding: 0.5em 0.7em;
+            margin: 0 0.3em;
         }
     </style>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -51,14 +70,14 @@
         <dd>
             4択の回答を 1, 2, 3, 4 の整数のいずれかで表し、10問分の回答となる要素10個の配列を JSON 形式で送信。<br />
             例)
-            <pre>[1,2,3,4,1,2,3,4,1,2]</pre>
+            <span class="code">[1,2,3,4,1,2,3,4,1,2]</span>
         </dd>
         <dt>クエリ文字列</dt>
         <dd>seed ... 正答を内部生成するのに使われる乱数シード値 (整数値)。省略可能で既定値は 1 です。</dd>
 
     </dl>
 
-    <p>この API サーバーには Swagger UI も搭載しており、以下のリンクから開けます。</p>
+    <p>この API サーバーは OpenPAI に対応しており、Swagger UI も搭載しています。Swagger UI は以下のリンクから開けます。</p>
     <p>
         <a href="./swagger/" target="_blank">
             <img src="./swagger/favicon-32x32.png" style="vertical-align: middle; margin-right: 12px;" />
@@ -67,7 +86,7 @@
     </p>
 
     <h2>呼び出し例</h2>
-    <p>例えば、cURL を使って下記のように回答 "[1,2,3,4,1,2,3,4,1,2]" を POST すると、正答数が返ります。</p>
+    <p>例えば、cURL を使って下記のように回答 <span class="code">[1,2,3,4,1,2,3,4,1,2]</span> を POST すると、正答数が返ります。</p>
     <pre>$ curl <span class="site-origin"></span>/answer?seed=123 -X POST -d "[1,2,3,4,1,2,3,4,1,2]" -H "content-type:application/json"<br />2</pre>
 
     <h2>ソースコード</h2>
