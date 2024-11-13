@@ -1,9 +1,10 @@
 ﻿using System.Runtime.InteropServices;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 
 await using var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
@@ -11,8 +12,17 @@ app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().WithMethods("POST"));
-app.UseSwagger();
-app.UseSwaggerUI();
+
+app.MapOpenApi();
+
+// This provides "http://host:port/swagger/"
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/openapi/v1.json", "v1");
+});
+
+// This provides "http://host:port/scalar/v1"
+app.MapScalarApiReference();
 
 app.MapPost("/answer", ([FromBody] int[] answers, int? seed) =>
 {
@@ -27,8 +37,7 @@ app.MapPost("/answer", ([FromBody] int[] answers, int? seed) =>
 
     return correctCount;
 })
-.WithName("PostAnser")
-.WithOpenApi();
+.WithName("PostAnser");
 
 app.MapGet("/runtime-information", () => new
 {
@@ -36,7 +45,6 @@ app.MapGet("/runtime-information", () => new
     RuntimeInformation.OSDescription,
     ProcessArchitecture = RuntimeInformation.ProcessArchitecture.ToString()
 })
-.WithName("GetRuntimeInformation")
-.WithOpenApi();
+.WithName("GetRuntimeInformation");
 
 await app.RunAsync();
