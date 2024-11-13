@@ -61,7 +61,7 @@ https://hub.docker.com/r/jsakamoto/chomad-problem-server/
 下記 `docker` コマンドで、TCP ポート 5000 でリッスンする状態で起動 (デタッチ、終了時のコンテナ削除の指定込み) できます。
 
 ```shell
-docker run -p 5000:80 -d --rm --name chomado-problem-server jsakamoto/chomado-problem-server
+docker run -p 5000:8080 -d --rm --name chomado-problem-server jsakamoto/chomado-problem-server:latest
 ```
 
 上記コマンド例で実行した場合は、コンテナ名に `chomado-problem-server` を指定してあるので、起動したコンテナを停止するには下記コマンドを実行すればよいです。
@@ -175,6 +175,13 @@ WebAssembly 版は、[Steve Sanderson 氏](https://twitter.com/stevensanderson) 
 
 このリポジトリを git clone したのち、clone した先のフォルダ直下にある `📂 ChomadoProblemServer` フォルダを Visual Studio Code で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
+### Docker イメージのビルド
+
+Docker イメージをビルドするには、`Dockerfile` ファイルがあるフォルダ (="ChomadoProblemServer") をカレントフォルダにして、下記のコマンドを実行してください。
+
+```shell
+docker build -t <イメージ名:タグ名> .
+```
 
 ## ライセンス
 
