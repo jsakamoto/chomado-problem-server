@@ -1,0 +1,13 @@
+﻿@ChomadoProblemServer_HostAddress = https://localhost:5001
+
+POST {{ChomadoProblemServer_HostAddress}}/answer
+Content-Type: application/json
+Accept: application/json
+
+[1,1,1,1,1,1,1,1,1,1]
+
+###
+
+GET {{ChomadoProblemServer_HostAddress}}/runtime-information
+
+###

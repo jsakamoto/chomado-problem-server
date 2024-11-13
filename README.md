@@ -173,7 +173,7 @@ WebAssembly 版は、[Steve Sanderson 氏](https://twitter.com/stevensanderson) 
 - [.NET SDK 9.0 のダウンロード](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Visual Studio Code のダウンロード](https://code.visualstudio.com/download)
 
-このリポジトリを git clone したのち、clone した先のフォルダ直下にある `📂 ChomadProblemServer` フォルダを Visual Studio Code で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
+このリポジトリを git clone したのち、clone した先のフォルダ直下にある `📂 ChomadoProblemServer` フォルダを Visual Studio Code で開いてキーボードの Ctrl + F5 を押せばビルドが実行され、続けてブラウザが起動してページが表示されます。
 
 
 ## ライセンス
