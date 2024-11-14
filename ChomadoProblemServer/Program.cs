@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using ChomadoProblemServer;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
+builder.ConfigureOpenTelemetry();
 
 await using var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
