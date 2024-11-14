@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
+builder.Services.AddHealthChecks();
 
 await using var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
@@ -14,6 +15,7 @@ app.UseStaticFiles();
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().WithMethods("POST"));
 
 app.MapOpenApi();
+app.UseHealthChecks("/health");
 
 // This provides "http://host:port/swagger/"
 app.UseSwaggerUI(options =>
